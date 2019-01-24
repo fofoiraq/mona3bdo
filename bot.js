@@ -80,17 +80,7 @@ const embed = new Discord.RichEmbed()
                   .setThumbnail (i)
 client.channels.get("427613133826162698").send({ embed: embed });
 });
-client.on('message', message => {
-        if (message.content === "+inv") {
-            if(!message.channel.guild) return;
-        let embed = new Discord.RichEmbed()
-        .setAuthor(` ${message.author.username} `, message.author.avatarURL)      
-        .setTitle(`:small_orange_diamond: click here `)
-        .setURL(`https://discordapp.com/api/oauth2/authorize?client_id=537238168525733898&permissions=8&scope=bot`)
-        .setThumbnail("https://discordapp.com/api/oauth2/authorize?client_id=537238168525733898&permissions=8&scope=bot")        
-     message.channel.sendEmbed(embed);
-       }
-   });
+
 client.on("guildCreate", guild => {
 console.log(`ii7MooDy Added From Server -- = ${guild.name} = -- , Server Owner -- = ${guild.owner.user.username} = --`)
 
