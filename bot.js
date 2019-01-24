@@ -23,23 +23,20 @@ var guilds = {};
 
 
 client.on('ready', function(){
-  client.user.setStatus("dnd");
-    var ms = 30000 ;	
-    var setGame = ['+inv','+help'];	
-    var i = -1;	
-    var j = 0;	
-    setInterval(function (){	
-        if( i == -1 ){	
-j = 1;	
-       }	
-        if( i == (setGame.length)-1 ){	
-            j = -1;	
-      }	
-       i = i+j;	
-        client.user.setGame(setGame[i],`twitch.tv/ninja`);	
-}, ms);	
-	
-});
+    var ms = 60000 ;
+    var setGame = [`${client.guilds.size} Server`,'!help','Type !help',`${client.users.size} Members`,'!inv','By:ii7MooDyツ,#4207'];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+        client.user.setGame(setGame[i],`http://www.twitch.tv/barontube`);
+    }, ms);
 
 
 client.on('message', message => {
