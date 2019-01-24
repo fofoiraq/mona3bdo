@@ -114,42 +114,6 @@ m.sendMessage(args)
 
 
 
-
-client.on('message', message => {
-  
-    if(message.content.split(' ')[0] == '+sug'){
-        if (message.author.bot) return;
-      
-                            let args = message.content.split(' ').slice(1).join(' ');
-                                 if (!args) return message.reply("You Have To Write A Msg !");
-    
-      let embed = new Discord.RichEmbed()
-                                                    .setDescription('**__:mailbox_with_mail: Suggestion Sent !__**')
-                                                    .setThumbnail(message.author.avatarURL)
-                                                    .addField("**-Sent By :**", message.author.username)
-                                                        .addField("**-Sender ID :**", message.author.id)
-                                                    .addField("**-Suggest :**", args)
-                                                    .setColor("FF0000")
-                                                    .setFooter(message.author.username, message.author.avatarURL)
-                                                   
-                                                    
-     client.channels.get("468102376495251466").send({ embed: embed });
-      let embe = new Discord.RichEmbed()
-                                                    .setAuthor(message.author.username, message.author.avatarURL)
-                                                    .setDescription('**__:mailbox_with_mail: Suggestion Sent Successfully !__**')
-                                                    .setThumbnail(message.author.avatarURL)
-                                                                                                    .setColor("FF0000")
-    
-                                                    .setFooter(message.author.username, message.author.avatarURL)
-                                                    message.channel.sendEmbed({ embed: embed });
-               
-                                      
-    }
-    });
-    
-
-
-
 client.on("message", message => {
   if (message.content === "+help") {
          message.react("✅")
