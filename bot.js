@@ -22,8 +22,23 @@ const prefix = "+";
 var guilds = {};
 
 
-client.on('ready',  () => {
-  client.user.setPresence({ game: { name: '،⫷⫸Doͥctͣeͫℝ-S▀█▀ℝANGE⫷⫸', type: 2 } });
+client.on('ready', function(){
+  client.user.setStatus("dnd");
+    var ms = 40000 ;	
+    var setGame = ['+inv','+help'];	
+    var i = -1;	
+    var j = 0;	
+    setInterval(function (){	
+        if( i == -1 ){	
+j = 1;	
+       }	
+        if( i == (setGame.length)-1 ){	
+            j = -1;	
+      }	
+       i = i+j;	
+        client.user.setGame(setGame[i],`twitch.tv/ninja`);	
+}, ms);	
+	
 });
 
 
@@ -51,7 +66,7 @@ client.on('message', message => {
     });
 
 client.on("guildDelete", guild => {
-    console.log(`KingX Left From Server -- = ${guild.name} = -- , Server Owner -- = ${guild.owner.user.username} = --`)
+    console.log(`ii7MooDy Left From Server -- = ${guild.name} = -- , Server Owner -- = ${guild.owner.user.username} = --`)
    
 var g= guild.members.size
 var i= guild.iconURL
@@ -71,7 +86,7 @@ client.channels.get("427613133826162698").send({ embed: embed });
 
 
 client.on("guildCreate", guild => {
-console.log(`KingX Added From Server -- = ${guild.name} = -- , Server Owner -- = ${guild.owner.user.username} = --`)
+console.log(`ii7MooDy Added From Server -- = ${guild.name} = -- , Server Owner -- = ${guild.owner.user.username} = --`)
 
 var g= guild.members.size
 var i= guild.iconURL
@@ -80,7 +95,7 @@ const embed = new Discord.RichEmbed()
   
                    .setColor("RANDOM")
                 .setFooter(` ©  ⫷⫸Doͥctͣeͫℝ-S▀█▀ℝANGE⫷⫸™ `)
-                .setTitle(" KingX Added To Server !")
+                .setTitle(" ii7MooDy Added To Server !")
                 .addField("**Guild Name:**", guild.name )
                  .addField("**Owner:**", guild.owner.user.username )
                  .addField("**MEMBER COUNT:**", g )
@@ -113,7 +128,6 @@ client.on('message', message => {
                                  if (!args) return message.reply("You Have To Write A Msg !");
     
       let embed = new Discord.RichEmbed()
-                                                    .setAuthor(message.author.username, message.author.avatarURL)
                                                     .setDescription('**__:mailbox_with_mail: Suggestion Sent !__**')
                                                     .setThumbnail(message.author.avatarURL)
                                                     .addField("**-Sent By :**", message.author.username)
@@ -147,7 +161,7 @@ client.on("message", message => {
    const embed = new Discord.RichEmbed() 
        .setColor("#ffff00")
        .setDescription(`
- KingX BOT
+ ii7MooDy
 ══════════ஜ۩۞۩ஜ════════════ 
        Bot commands
 
@@ -952,7 +966,7 @@ client.on('message', message => {
 
   var roleCreated = role.createdAt.toString().split(' ');
   const embed = new Discord.RichEmbed()
-  .setTitle("KingX ")
+  .setTitle("ii7MooDy ")
   .setAuthor( '', '' )
   .setColor(0xFF8DFD)
   .setDescription(``)
@@ -2765,7 +2779,7 @@ message.react("📬")
       if(!msg.member.hasPermission('ADMINISTRATOR')) return      msg.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
       if(!msg.guild.member(client.user).hasPermission("MANAGE_ROLES")) return msg.reply("**I Don't Have `MANAGE_ROLES` Permission**").then(msg => msg.delete(6000))
 
-    msg.guild.roles.filter(msg => isNaN(msg)).forEach(KingX => KingX.delete())
+    msg.guild.roles.filter(msg => isNaN(msg)).forEach(ii7MooDy => ii7Moody.delete())
     }
     });
       
@@ -2809,7 +2823,7 @@ ${args}
         if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
       if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
         let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-        let copy = " KingX ";
+        let copy = " ii7MooDy ";
         let request = `Requested By ${message.author.username}`;
         if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {
         msg.react('✅')
@@ -3690,7 +3704,7 @@ var prefix = "+";
         var args = message.content.split(" ").slice(1);
     if(message.content.startsWith(prefix + 'لو خيروك')) {
          var lo = new Discord.RichEmbed()
-     .setFooter(`©  KingX ™ `)
+     .setFooter(`©  ii7MooDy ™ `)
 .setImage(viper[Math.floor(Math.random() * viper.length)])
 message.channel.sendEmbed(lo);
     }
@@ -3720,7 +3734,7 @@ const secreT = [
     .setColor('RANDOM')
    
      .setThumbnail(message.author.avatarURL) 
-     .setFooter(`©  KingX ™ `)
+     .setFooter(`©  ii7MooDy ™ `)
    .addField('لعبه خواطر' ,
     `${secreT[Math.floor(Math.random() * secreT.length)]}`)
     message.channel.sendEmbed(embed);
@@ -3766,7 +3780,7 @@ client.on('message', message => {
  var embed = new Discord.RichEmbed()
  .setColor('RANDOM')
   .setThumbnail(message.author.avatarURL) 
-     .setFooter(`©  KingX ™ `)
+     .setFooter(`©  ii7MooDy ™ `)
 .addField('لعبه كت تويت' ,
  `${cuttweet[Math.floor(Math.random() * cuttweet.length)]}`)
  message.channel.sendEmbed(embed);
@@ -3782,7 +3796,7 @@ client.on('message', message => {
                 if(!message.channel.guild) return message.reply('** This command only for servers**');
   var embed = new Discord.RichEmbed()
   .setColor(0xd3d0c4)
-     .setFooter(`©  KingX ™ `)
+     .setFooter(`©  ii7MooDy ™ `)
    .setThumbnail(message.author.avatarURL) 
  .addField('حب' ,
   `${Love[Math.floor(Math.random() * Love.length)]}`)
@@ -3797,7 +3811,7 @@ var prefix = "+";
         var args = message.content.split(" ").slice(1);
     if(message.content.startsWith(prefix + 'animal')) {
          var cat = new Discord.RichEmbed()
-     .setFooter(`©  KingX 
+     .setFooter(`©  ii7MooDy
 ™ `)
 .setImage(cats[Math.floor(Math.random() * cats.length)])
 message.channel.sendEmbed(cat);
@@ -3871,7 +3885,7 @@ if (message.content.startsWith('+صراحه')) {
  var client= new Discord.RichEmbed()
  .setTitle("لعبة صراحة ..")
  .setColor('RANDOM')
-     .setFooter(`©  KingX 
+     .setFooter(`©  ii7MooDy
 ™ `)
  .setDescription(`${Sra7a[Math.floor(Math.random() * Sra7a.length)]}`)
  .setImage("https://cdn.discordapp.com/attachments/371269161470525444/384103927060234242/125.png")
