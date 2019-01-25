@@ -24,7 +24,7 @@ var guilds = {};
 
 client.on('ready', function(){
     var ms = 60000 ;
-    var setGame = [`${client.guilds.size} Server`,'!help','Type !help',`${client.users.size} Members`,'!inv','By:ii7MooDyツ,#4207'];
+    var setGame = [`${client.guilds.size} Server`,'+help','Type +help',`${client.users.size} Members`,'+inv','By:ii7MooDy,#0001'];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -46,7 +46,17 @@ client.on('ready', function(){
  console.log(` ???????????????????`);
  console.log(` ???????????????????`);
 });
-
+client.on('message', message => {
+        if (message.content === "+inv") {
+            if(!message.channel.guild) return;
+        let embed = new Discord.RichEmbed()
+        .setAuthor(` ${message.author.username} `, message.author.avatarURL)      
+        .setTitle(`:small_orange_diamond: click here `)
+        .setURL(`https://discordapp.com/api/oauth2/authorize?client_id=537238168525733898&permissions=2146958839&scope=bot`)
+        .setThumbnail("https://discordapp.com/api/oauth2/authorize?client_id=537238168525733898&permissions=2146958839&scope=bot")        
+     message.channel.sendEmbed(embed);
+       }
+   });
 client.on('message', message => {
     if (message.content === "+bot") {
     if(!message.channel.guild) return;
