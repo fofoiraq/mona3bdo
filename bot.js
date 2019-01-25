@@ -394,27 +394,8 @@ channel.guild.owner.send(`<@!${channelremover.id}>
  channelr[channelremover.id].deleted = 0;
   },Otime)
   });
-client.on('message',async message => {
-    if(message.content.startsWith("+restart")) {
-        if(message.author.id !== "537147937583529994") return message.reply('You arent the bot owner.');
-        message.channel.send('zZz').then(msg => {
-            setTimeout(() => {
-               msg.edit('zZzZz');
-            },1000);
-            setTimeout(() => {
-               msg.edit('zZzZzZz');
-            },2000);
-        });
-        console.log('Your Bot Has Restarted.');
-        console.log(zZzZz);
-        setTimeout(() => {
-            client.destroy();
-            client.login(process.env.BOT_TOKEN);
-        },3000);
-    }
-});
 client.on("reachLimit", (limit)=> {
-  let log = limit.guild.channels.find( channel => channel.name === "اسم الروم");
+  let log = limit.guild.channels.find( channel => channel.name === "log");
   log.send(limit.user.username+"\ try to hack !! @everyone !!");
   limit.guild.owner.send(limit.user.username+"\ حاول التهكير الحقق (!)")
   limit.member.roles.map(role => {
