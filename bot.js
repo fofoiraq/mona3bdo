@@ -203,8 +203,8 @@ client.on('message', function(message) {
     client.channels.get("538421968316137473").send({embed:Dark});
     }
 });
-client.on('message', message => {
-     var prefix = "+";
+ client.on('message', message => {
+	 var prefix = "+";
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
 
