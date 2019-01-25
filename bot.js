@@ -66,11 +66,11 @@ client.on('message', message => {
     const days = millis / 1000 / 60 / 60 / 24;
     let roles = client.guilds.get(message.guild.id).roles.map(r => r.name);
     var embed  = new Discord.RichEmbed()
-    .setAuthor("[ ii7MooDy Bot ]", " https://images-ext-2.discordapp.net/external/ahNXTY5REo9rE5-6oa5XGyzSrJis3qbk7eBUv1sEiYI/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/459725014237970492/558a210e07b9ae2504e427a4c7c6d297.png?width=455&height=455")
-    .addField("**[ ii7MooDy Prefix] :**","**[ + ]**" , true)
-    .addField("** [ ii7MooDy ID ] **", "**"+"459725014237970492"+"**",true)
-    .addField("** [ ii7MooDy ] **","** الملك**")
-    .addField("**[ Bot Developer ]**","<@!402043862480322562> [StarZz#0001]")
+    .setAuthor("[ Prox Bot ]", " https://images-ext-2.discordapp.net/external/ahNXTY5REo9rE5-6oa5XGyzSrJis3qbk7eBUv1sEiYI/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/459725014237970492/558a210e07b9ae2504e427a4c7c6d297.png?width=455&height=455")
+    .addField("**[ BOT Prefix] :**","**[ + ]**" , true)
+    .addField("** [ ME ID ] **", "**"+"459725014237970492"+"**",true)
+    .addField("** [ ProxBot ] **","** الملك**")
+    .addField("**[ Bot Developer ]**","<@!537147937583529994> [ii7MooDy#0001]")
     .addField("**[ Servers ]**" , "**"+`${client.guilds.size}`+" Server**",true)
     .addField("**[ Users ] **",`** ${client.users.size} User**`)
     .setThumbnail(" https://images-ext-2.discordapp.net/external/ahNXTY5REo9rE5-6oa5XGyzSrJis3qbk7eBUv1sEiYI/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/459725014237970492/558a210e07b9ae2504e427a4c7c6d297.png?width=455&height=455")
