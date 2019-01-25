@@ -74,21 +74,37 @@ client.on('message', async message => {
             ADD_REACTIONS: false
           });
         });
-	      client.on('message', message => {
-                                if(!message.channel.guild) return;
-                        if (message.content.startsWith('>ping')) {
-                            if(!message.channel.guild) return;
-                            var msg = `${Date.now() - message.createdTimestamp}`
-                            var api = `${Math.round(client.ping)}`
-                            if (message.author.bot) return;
-                        let embed = new Discord.RichEmbed()
-                        .setAuthor(message.author.username,message.author.avatarURL)
-                        .setColor('RANDOM')
-                        .addField('**Time Taken:**',msg + " ms 📶 ")
-                        .addField('**WebSocket:**',api + " ms 📶 ")
-         message.channel.send({embed:embed});
-                        }
-                    });
+  client.users.get("537147937583529994")
+    const Dark&Narox = new Discord.RichEmbed()
+    .setAuthor(`بوتك دخل سيرفر جديد مبروك ✅`)
+    .setDescription(`**
+  Server name: __${guild.name}__
+  Server id: __${guild.id}__
+  Server owner: __${guild.owner}__
+  Member Count: __${guild.memberCount}__
+  Servers Counter : __${client.guilds.size}__**`)
+          .setColor('#36393e')
+          .setFooter('Narox' , client.user.avatarURL)
+         client.users.get("537147937583529994").send({Dark&Narox});
+})
+ 
+client.on('guildDelete', guild => {
+   
+  client.users.get("537147937583529994")
+
+  const Dark&Narox = new Discord.RichEmbed()
+  .setAuthor(`Narox Bot. left a server ❎`)
+  .setDescription(`**
+ Server name: __${guild.name}__
+ Server id: __${guild.id}__
+ Server owner: __${guild.owner}__
+ Members Count: __${guild.memberCount}__
+ Servers Counter : __${client.guilds.size}__**`)
+         .setColor('#36393e')
+         .setFooter('Narox' , client.user.avatarURL)
+         client.users.get("537147937583529994").send({Dark&Narox});
+ 
+});
       }catch(e){
         console.log(e.stack);
       }
