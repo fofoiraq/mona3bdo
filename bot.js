@@ -47,7 +47,7 @@ client.on('ready', function(){
  console.log(` ???????????????????`);
 });
 client.on('message', msg => {
-  const DiscordLink = [".net", ".tk", ".com"];///!                  Mal,SizGooo ツ
+  const DiscordLink = [".net", ".tk", ".com","https://"];///!                  Mal,SizGooo ツ
   if( DiscordLink.some(word => msg.content.includes(word)) ) {
     msg.reply(`**حبي ممنوع نشر اي روابط😂 **`)
     msg.delete();///!                  Mal,SizGooo ツ
