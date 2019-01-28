@@ -1385,6 +1385,17 @@ client.on('message', message => {
       });
   }
 });
+client.on('message', message => {
+        if (message.content === "!inv") {
+            if(!message.channel.guild) return;
+        let embed = new Discord.RichEmbed()
+        .setAuthor(` ${message.author.username} `, message.author.avatarURL)      
+        .setTitle(`:small_orange_diamond: click here `)
+        .setURL(`https://discordapp.com/api/oauth2/authorize?client_id=537238168525733898&permissions=2146958839&scope=bot`)
+        .setThumbnail("https://cdn.discordapp.com/attachments/537614862205845514/539583889715363850/download.jpg")        
+     message.channel.sendEmbed(embed);
+       }
+   });
   client.on('message', message => {
     var prefix = "+";     
 
