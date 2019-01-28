@@ -179,6 +179,14 @@ delete warn[message.author.id];
 
   }
 });
+client.on('typingStart', (ch, user) => {
+    if(user.presence.status === 'offline') {
+        ch.send(`${user} تحذير هذا شخص مسوي نفسه اوف لاين ويكتب`)
+        .then(msg => {
+            msg.delete(10000)
+        })
+    }
+});
 client.on('message', message => {
         if (message.content === "+inv") {
             if(!message.channel.guild) return;
