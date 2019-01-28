@@ -46,14 +46,6 @@ client.on('ready', function(){
  console.log(` ???????????????????`);
  console.log(` ???????????????????`);
 });
-client.on('message', msg => {
-  const DiscordLink = [".net", ".tk", ".com","https://"];///!                  Mal,SizGooo ツ
-  if( DiscordLink.some(word => msg.content.includes(word)) ) {
-    msg.reply(`**حبي ممنوع نشر اي روابط😂 **`)
-    msg.delete();///!                  Mal,SizGooo ツ
-
-}
-})///!                  Mal,SizGooo ツ
 client.on('message', async message => {
             if(message.content.includes('discord.gg')){
                 if(message.member.hasPermission("MANAGE_GUILD")) return;
