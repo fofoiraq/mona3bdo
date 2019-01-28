@@ -515,7 +515,7 @@ var i= guild.iconURL
 const embed = new Discord.RichEmbed()
   
                    .setColor("RANDOM")
-                .setFooter(` ©  ⫷⫸Doͥctͣeͫℝ-S▀█▀ℝANGE⫷⫸™ `)
+                .setFooter(` ©ii7MooDy `)
                 .setTitle(" ii7MooDy Added To Server !")
                 .addField("**Guild Name:**", guild.name )
                  .addField("**Owner:**", guild.owner.user.username )
