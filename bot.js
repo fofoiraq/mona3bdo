@@ -24,7 +24,7 @@ var guilds = {};
 
 client.on('ready', function(){
     var ms = 2000 ;
-    var setGame = [`${client.guilds.size} Server`,'+help','Type +help',`${client.users.size} Members`,'+inv','By:ii7MooDy,#0001'];
+    var setGame = ['+help','Type +help','+inv','By:ii7MooDy,#0001'];
     var i = -1;
     var j = 0;
     setInterval(function (){
