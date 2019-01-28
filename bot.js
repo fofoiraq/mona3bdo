@@ -203,6 +203,24 @@ client.on('message', function(message) {
     client.channels.get("538421968316137473").send({embed:Dark});
     }
 });
+client.on('guildMemberRemove', Sal => { //By Salto7#4595
+  var embed = new Discord.RichEmbed()
+  .setAuthor(Sal.user.username, Sal.user.avatarURL)
+  .setThumbnail(Sal.user.avatarURL)
+  .setImage('https://cdn.discordapp.com/attachments/505491202871787521/509701858571321350/download.jpg') //هنا حط الصوره الي تبيها
+  .setTitle('خرج عضو')
+  .setDescription('الله معك مع السلامه')
+  .addField('``ايدي العضو``:',"" +  Sal.user.id, true)
+  .addField('``تاق العضو``', Sal.user.discriminator, true)
+  .addField('``تم الانشاء في``', Sal.user.createdAt, true)
+  .addField(' ?? الان ',`**[ ${Sal.guild.memberCount} ]**`,true)
+  .setColor('RED')
+  .setFooter(Sal.guild.name, Sal.guild.iconURL, true)
+  var channel =Sal.guild.channels.find('name', 'welcome') // هنا حط اسم الروم الي تبيه يكتب فيه
+  if (!channel) return;
+  channel.send({embed : embed});
+  });
+
  client.on('message', message => {
 	 var prefix = "+";
   if (message.author.bot) return;
