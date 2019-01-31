@@ -46,6 +46,16 @@ client.on('ready', function(){
  console.log(` ???????????????????`);
  console.log(` ???????????????????`);
 });
+client.on('message', message => {
+    if (message.content.startsWith("<@537238168525733898>"))
+    
+    message.reply("Bot Owner : YOU");
+    
+      
+
+
+
+});
 client.on('message', async message => {
             if(message.content.includes('discord.gg')){
                 if(message.member.hasPermission("MANAGE_GUILD")) return;
