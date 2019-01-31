@@ -23,7 +23,7 @@ var guilds = {};
 
 
 client.on('ready', function(){
-    var ms = 2000 ;
+    var ms = 3000 ;
     var setGame = ['+help','Type +help','+inv','By:ii7MooDy,#0001'];
     var i = -1;
     var j = 0;
@@ -235,7 +235,7 @@ client.on('ready', () => {//new ready event
                       role.edit({color : "RANDOM"});
                   };
       });
-  }, 5000);//the rainbow time
+  }, 2000);//the rainbow time
 })
 client.on('message', message => {
 	var prefix = "!"
