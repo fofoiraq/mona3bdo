@@ -49,7 +49,7 @@ client.on('ready', function(){
 client.on('message', message => {
     if (message.content.startsWith("<@537238168525733898>"))
     
-    message.reply("Bot Owner : YOU");
+    message.reply("Bot Owner : كسمك");
     
       
 
