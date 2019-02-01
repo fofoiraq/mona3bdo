@@ -63,41 +63,6 @@ client.on('message', message => {
   message.channel.sendEmbed(embed);
     }
 });
-if(!hero) {
-  let hero = client;
-}
-hero.on('message',async message => {
-  if(message.author.bot || message.channel.type === 'dm') return;
-  if(!message.content.startsWith(prefix)) return;
-  let cmd = message.content.split(" ")[0].substring(prefix.length);
-  let args = message.content.split(" ").slice(1);
-  
-  if(cmd === 'package') {
-    let registry = `http://registry.npmjs.com/`;
-    let fetch = require('node-fetch');
-    if(!args[0]) return message.reply(`- Please Type the package name first`);
-    
-    fetch(`${registry}${args[0]}`)
-    .then(res => res.json())
-    .then(json => {
-      let version = json["dist-tags"].latest;
-      let name = json.name;
-      let packagejson = require('./package.json');
-      
-      packagejson["dependencies"][name] = version;
-      if(!RichEmbed) {
-        let { RichEmbed } = require('discord.js');
-      }
-      let i = new RichEmbed();
-      i.setColor("#36393e");
-      i.setThumbnail(message.author.avatarURL);
-      i.setDescription(`\`\`\`json\n${JSON.stringify(packagejson, null, 4)}\`\`\``);
-      
-      message.channel.send(i);
-    })
-    .catch(e => message.reply(`Couldn't find the package`));
-  }
-});
 client.on('message', message => {
     if (message.content.startsWith("<@537147937583529994>"))
     
