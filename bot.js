@@ -416,19 +416,6 @@ client.on('message', message => {
      message.channel.sendEmbed(embed);
        }
    });
-client.on('message', function(message) {
-    if (message.channel.type === "dm") {
-        if (message.author.id === client.user.id) return;
-        var Dark = new Discord.RichEmbed()
-        .setColor('RANDOM')
-        .setTimestamp()
-        .setTitle('``! لقد تلقيت رساله جديدة في الخاص !``')
-        .setThumbnail(`${message.author.avatarURL}`)
-        .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
-        .setFooter(`From ${message.author.tag} (${message.author.presence.status.toUpperCase()})`)
-    client.channels.get("538421968316137473").send({embed:Dark});
-    }
-});
 client.on('guildMemberRemove', Sal => { //By Salto7#4595
   var embed = new Discord.RichEmbed()
   .setAuthor(Sal.user.username, Sal.user.avatarURL)
