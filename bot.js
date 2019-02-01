@@ -46,6 +46,44 @@ client.on('ready', function(){
  console.log(` ???????????????????`);
  console.log(` ???????????????????`);
 });
+       const mmss = require('ms');
+        client.on('message', async message => {
+            let muteReason = message.content.split(" ").slice(3).join(" ");
+            let mutePerson = message.mentions.users.first();
+            let messageArray = message.content.split(" ");
+            let muteRole = message.guild.roles.find("name", "Muted");
+            let time = messageArray[2];
+            if(message.content.startsWith(prefix + "mute")) {
+                if(!message.member.hasPermission('MUTE_MEMBERS')) return message.channel.send('**Sorry But You Dont Have Permission** `MUTE_MEMBERS`' );
+                if(!mutePerson) return message.channel.send('**Mention Someone**')
+                if(mutePerson === message.author) return message.channel.send('**You Cant Mute Yourself**');
+                if(mutePerson === client.user) return message.channel.send('**You Cant Mute The Bot**');
+                if(message.guild.member(mutePerson).roles.has(muteRole.id)) return message.channel.send('**This Person Already Tempmuted !**');
+                if(!muteRole) return message.guild.createRole({ name: "Muted", permissions: [] });
+                if(!time) return message.channel.send("**Type The Duration**");
+                if(!time.match(/[1-60][s,m,h,d,w]/g)) return message.channel.send('**The Bot Not Support This Time**');
+                if(!muteReason) return message.channel.send('Please Type The Reason')
+                message.guild.member(mutePerson).addRole(muteRole);
+                message.channel.send(`**:white_check_mark: ${mutePerson} has been muted ! :zipper_mouth: **`)
+                message.delete()
+                let muteEmbed = new Discord.RichEmbed()
+                .setTitle(`New Temp Muted User`)
+                .setThumbnail(message.guild.iconURL)
+                .addField('- Muted By:',message.author,true)
+                .addField('- Muted User:', `${mutePerson}`)
+                .addField('- Reason:',muteReason,true)
+                .addField('- Duration:',`${mmss(mmss(time), {long: true})}`)
+                .setFooter(message.author.username,message.author.avatarURL);
+                let incidentchannel = message.guild.channels.find(`name`, `${log[message.guild.id].channel}`);
+                if(!incidentchannel) return message.channel.send("Can't find log channel. To Set The Log Channel Type >setLog and answer the questions");
+                incidentchannel.sendEmbed(muteEmbed)
+                mutePerson.send(`**You Are has been temp muted in ${message.guild.name} reason: ${muteReason}**`)
+                .then(() => { setTimeout(() => {
+                   message.guild.member(mutePerson).removeRole(muteRole);
+               }, mmss(time));
+            });
+            }
+        });
 client.on("message", (message) => {
 
    if (message.content.startsWith("+new")) {   
