@@ -19,9 +19,7 @@ var jimp = require('jimp')
 const config = require("./config.json")
 const pretty = require('pretty-ms');
 const prefix = "+";
-const fs = require('fs'); // npm i fs
-const ms = require('ms'); // npm i ms
-const cool = [];
+const ms = require('ms');
 var guilds = {};
 
 
