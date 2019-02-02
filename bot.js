@@ -19,6 +19,9 @@ var jimp = require('jimp')
 const config = require("./config.json")
 const pretty = require('pretty-ms');
 const prefix = "+";
+const fs = require('fs'); // npm i fs
+const ms = require('ms'); // npm i ms
+const cool = [];
 var guilds = {};
 
 
@@ -46,9 +49,6 @@ client.on('ready', function(){
  console.log(` ???????????????????`);
  console.log(` ???????????????????`);
 });
-const fs = require('fs'); // npm i fs
-const ms = require('ms'); // npm i ms
-const cool = [];
 client.on('message',async message => {
   if(message.author.bot) return;
   if(message.channel.type === 'dm') return;
