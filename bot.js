@@ -1361,22 +1361,16 @@ client.on('message', message => {
         }
     });
 
-    client.on('message', message => {
-        if(!message.channel.guild) return;
-    if (message.content.startsWith('+ping')) {
-    if(!message.channel.guild) return;
-    var msg = `${Date.now() - message.createdTimestamp}`
-    var api = `${Math.round(client.ping)}`
-    if (message.author.bot) return;
-    let embed = new Discord.RichEmbed()
-    .setAuthor(message.author.username,message.author.avatarURL)
-    .setThumbnail('https://media.discordapp.net/attachments/417477494950854656/438706305125974017/maxresdefaul1t.jpg?width=339&height=353')
-    .setColor('RANDOM')
-    .addField('**Time Taken:**',msg + " ms")
-    .addField('**WebSocket:**',api + " ms")
-    message.channel.send({embed:embed});
-    }
-    });
+client.on('message' , message => {
+  if(message.author.bot) return;
+  if(message.content.startsWith(prefix + "ping")) {
+ message.channel.send('pong').then((msg) => {
+var PinG = `${Date.now() - msg.createdTimestamp}`
+var ApL = `${Math.round(client.ping)}`
+      msg.edit(`\`\`\`javascript\nTime taken: ${PinG} ms.\nDiscord API: ${ApL} ms.\`\`\``);
+ })
+  }  
+ });
 
 
  
