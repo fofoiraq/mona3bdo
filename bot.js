@@ -48,38 +48,22 @@ client.on('ready', function(){
  console.log(` ???????????????????`);
 });
 client.on('ready', function(){
-    var ms = 3000 ;
-    var setGame = ['+new','Type +help','+inv','By:ii7MooDy,#0001'];
-    var i = -1;
-    var j = 0;
-    setInterval(function (){
-        if( i == -1 ){
-            j = 1;
-        }
-        if( i == (setGame.length)-1 ){
-            j = -1;
-        }
-        i = i+j;
-        client.user.setGame(setGame[i],'http://www.youtube.com/gg');
-    }, ms);
-    console.log(` ????????? |> Name: ${client.user.username}`);
- console.log(` ????????? |> Servers: ${client.guilds.size}`);
- console.log(` ???????????????????? |> Members: ${client.users.size}`);
- console.log(` ????????????????????? |> Channels: ${client.channels.size}`);
- console.log(` ???????????????????? |> Channels: ${client.channels.size}`);
- console.log(` ???????????????????? |> Id: ${client.user.id}`);
- console.log(` ???????????????????`);
- console.log(` ???????????????????`);
-});
- client.on('ready', function(){
-    client.user.setStatus("idle");
-    var ms = 1 ;
-
-});
- client.on('ready', function(){
-    client.user.setStatus("dnd");
-    var ms = 1 ;
-
+  client.user.setStatus("dnd");
+    var ms = 40000 ;	
+    var setGame = ['Dragon Bot'];	
+    var i = -1;	
+    var j = 0;	
+    setInterval(function (){	
+        if( i == -1 ){	
+j = 1;	
+       }	
+        if( i == (setGame.length)-1 ){	
+            j = -1;	
+      }	
+       i = i+j;	
+        client.user.setGame(setGame[i],`http://www.youtube.com/gg`);	
+}, ms);	
+	
 });
 
        const mmss = require('ms');
