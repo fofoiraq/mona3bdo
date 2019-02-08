@@ -52,9 +52,8 @@ client.on('ready', function(){
     var ms = 1 ;
 
 });
-
  client.on('ready', function(){
-    client.user.setStatus("Do Not Disturb");
+    client.user.setStatus("dnd");
     var ms = 1 ;
 
 });
