@@ -47,7 +47,17 @@ client.on('ready', function(){
  console.log(` ???????????????????`);
  console.log(` ???????????????????`);
 });
+ client.on('ready', function(){
+    client.user.setStatus("idle");
+    var ms = 1 ;
 
+});
+
+ client.on('ready', function(){
+    client.user.setStatus("Do Not Disturb");
+    var ms = 1 ;
+
+});
 
        const mmss = require('ms');
         client.on('message', async message => {
