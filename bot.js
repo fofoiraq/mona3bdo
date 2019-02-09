@@ -23,11 +23,6 @@ const ms = require('ms');
 var guilds = {};
 
 
- client.on('ready', function(){
-    client.user.setStatus("dnd");
-    var ms = 1 ;
-
-});
 
 
        const mmss = require('ms');
