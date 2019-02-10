@@ -63,6 +63,13 @@ var guilds = {};
             });
             }
         });
+client.on("guildMemberAdd", member => {
+  member.createDM().then(function (channel) {
+  return channel.send(`:rose:  ولكم نورت السيرفر:rose: 
+:crown:اسم العضو  ${member}:crown:  
+انت العضو رقم ${member.guild.memberCount} `) 
+}).catch(console.error)
+})
 client.on("message", message => {
   let men = message.mentions.users.first();
   if(message.content.startsWith( "+vkick")) {
