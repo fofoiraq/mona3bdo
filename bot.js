@@ -63,41 +63,7 @@ var guilds = {};
             });
             }
         });
-client.on('guildCreate', guild => {
-   
-  client.channels.get("544591292529901569")
-const embed = new Discord.RichEmbed()
-   .setAuthor(`بوتك دخل سيرفر جديد مبروك ✅`)
-   .setDescription(`**
-Server name: __${guild.name}__
-Server id: __${guild.id}__
-Server owner: __${guild.owner}__
-Member Count: __${guild.memberCount}__
-Servers Counter : __${client.guilds.size}__**`)
-         .setColor("#f3ae10")
-         .addField("New Server!")
-         .setFooter('اسم بوتك' , client.user.avatarURL)
-           client.channels.get("532624137894625311").send({embed}); //Sup
-}
- 
-);
 
-client.on('guildDelete', guild => {
-  client.channels.get("544591292529901569")
-const embed = new Discord.RichEmbed()
-   .setAuthor(`للاسف بوتك خرج من السيرفر ❎`)
-   .setDescription(`**
-Server name: __${guild.name}__
-Server id: __${guild.id}__
-Server owner: __${guild.owner}__
-Members Count: __${guild.memberCount}__
-Servers Counter : __${client.guilds.size}__**`)
-         .setColor("#f3ae10")
-         .setFooter('اسم بوتك' , client.user.avatarURL)
-           client.channels.get("532624137894625311").send({embed});
-}
- 
-);
 client.on("guildMemberAdd", member => {
   member.createDM().then(function (channel) {
   return channel.send(`:rose:  ولكم نورت السيرفر:rose: 
@@ -699,7 +665,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-var prefix = "!";
+var prefix = "+";
        if(message.content === prefix + "mutechannel") {
                            if(!message.channel.guild) return message.reply('** This command only for servers**');
 
