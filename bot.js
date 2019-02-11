@@ -134,23 +134,7 @@ console.log(error)
 })
 });
 
-const replyForMention = [
-    "ايش تبي",
-    "سوي +help",
-    "احد ناداني؟",
-    "سم؟",
-    "كيفك",
-    "تمنشن بوت ياغبي؟",
-    "لا تزعجني",
-    "هلا"
-]
-client.on('message', message=> {
-    if (message.author.bot) return;
-    if (message.isMentioned(client.user))
-    {
-    message.reply(replyForMention);
-    }
-});
+
 
 
 client.on('message', message=> {
@@ -162,7 +146,7 @@ client.on('message', message=> {
 });
  let channelc = {};
   client.on('channelCreate', async (channel) => {
-  const rebellog = client.channels.find("name", "log"),
+  const rebellog = client.chnnels.find("name", "log"),
   Oguild = channel.guild,
   Onumber = 3,
   Otime = 10000;
