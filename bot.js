@@ -33,7 +33,7 @@ client.on("guildMemberAdd", member => {
 })
 client.on("message", message => {
   let men = message.mentions.users.first();
-  if(message.content.startsWith( "+vkick")) {
+  if(message.content.startsWith( "$vkick")) {
     try {
     if(!men) {
       message.channel.send("**الرجاء اخيار شخص لطرده !**");
@@ -247,7 +247,7 @@ delete warn[message.author.id];
 });
 client.on("message", (message) => {
 
-   if (message.content.startsWith("+new")) {   
+   if (message.content.startsWith("$new")) {   
         const reason = message.content.split(" ").slice(1).join(" ");  
         if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`لازم تسوي رتبة اسمها \`Support Team\` وتنطي البوت ادمنيتر حتا يقدر يسوي الرومات ويعدل برمشنات`);
         if (message.guild.channels.exists("name", "ticket-{message.author.id}" + message.author.id)) return message.channel.send(`You already have a ticket open.`);    /// ALPHA CODES
