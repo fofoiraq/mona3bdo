@@ -31,85 +31,7 @@ client.on("guildMemberAdd", member => {
 انت العضو رقم ${member.guild.memberCount} `) 
 }).catch(console.error)
 })
-client.on("message", message => {
-  let men = message.mentions.users.first();
-  if(message.content.startsWith( "$vkick")) {
-    try {
-    if(!men) {
-      message.channel.send("**الرجاء اخيار شخص لطرده !**");
-      return;
-    }
-    if(!message.guild.member(men).voiceChannel) return message.channel.send("المراد طرده ليس في الغرف الصوتيه!");
-    if(!message.member.hasPermission("MOVE_MEMBERS")) return message.channel.send("ليست لديك صلحيات سحب الاعضاء")
-    if(!message.guild.me.hasPermission("MOVE_MEMBERS")) return message.channel.send("ليست لدي الصلاحيه لسحب الاعضاء");
-       if(!message.guild.me.hasPermission("MANAGE_CHANNELS")) return message.channel.send("ليست لدي الصلاحيات لانشاء رومات صوتيه")
-
-    message.guild.createChannel("AgentX VKick", "voice").then(c => {
-      message.guild.member(men).setVoiceChannel(c.id)
-    setTimeout(() => {
-      c.delete()
-    }, 100)
-    });
-    message.channel.send(`**لقد تم طرده من الرومات الصوتيه \`\`${men.username}\`\`**`)
-} catch (e) {
-  message.channel.send("لا يمكنني القيام بذلك بسبب الصلاحيات او ما شابه");
-}
-  }
-});
-var guilds = {};
-client.on('guildBanAdd', function(guild) {
-            const rebellog = client.channels.find("name", "log"),
-            Onumber = 3,
-  Otime = 10000
-guild.fetchAuditLogs({
-    type: 22
-}).then(audit => {
-    let banner = audit.entries.map(banner => banner.executor.id)
-    let bans = guilds[guild.id + banner].bans || 0 
-    guilds[guild.id + banner] = {
-        bans: 0
-    }
-      bans[guilds.id].bans += 1; 
-if(guilds[guild.id + banner].bans >= Onumber) {
-try {
-let roles = guild.members.get(banner).roles.array();
-guild.members.get(banner).removeRoles(roles);
-  guild.guild.member(banner).kick();
-
-} catch (error) {
-console.log(error)
-try {
-guild.members.get(banner).ban();
-  rebellog.send(`<@!${banner.id}>
-حآول العبث بالسيرفر @everyone`);
-guild.owner.send(`<@!${banner.id}>
-حآول العبث بالسيرفر ${guild.name}`)
-    setTimeout(() => {
- guilds[guild.id].bans = 0;
-  },Otime)
-} catch (error) {
-console.log(error)
-}
-}
-}
 })
-});
-const wait= new Set()
-  if (wait.has(message.author.id)) {
-    return message.reply("**__يجب ان تنظر 10 ثواني لاستخدام الكود مرة اخرى__**").then(message => {
-     message.delete(10000) 
-    })
-    }
-    wait.add(message.author.id);
-    setTimeout(() => {
-        wait.delete(message.author.id);
-    }, 10000);
-client.on('message', message=> {
-    if (message.author.bot) return;
-    if (message.isMentioned(client.user))
-    {
-    message.reply(replyForMention);
-    }
 });
  let channelc = {};
   client.on('channelCreate', async (channel) => {
@@ -249,7 +171,7 @@ client.on("message", (message) => {
 
    if (message.content.startsWith("$new")) {   
         const reason = message.content.split(" ").slice(1).join(" ");  
-        if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`لازم تسوي رتبة اسمها \`Support Team\` وتنطي البوت ادمنيتر حتا يقدر يسوي الرومات ويعدل برمشنات`);
+        if (!message.guild.roles.exists("name", "Dragon Bot")) return message.channel.send(`لازم تسوي رتبة اسمها \`Dragon Bot\` وتنطي البوت ادمنيتر حتا يقدر يسوي الرومات ويعدل برمشنات`);
         if (message.guild.channels.exists("name", "ticket-{message.author.id}" + message.author.id)) return message.channel.send(`You already have a ticket open.`);    /// ALPHA CODES
         message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
             let role = message.guild.roles.find("name", "Support Team");
@@ -372,20 +294,6 @@ client.on('message', message => {
       }
 )}
 })
-});
-client.on('message', async message => {
-  if(message.content.startsWith(prefix + "all")) {
-    let i = client.users.size;
-    if(message.author.id !== '537147937583529994') return message.channel.send('❎ » هذا الأمر مخصص لصاحب البوت فقط');
-    var args = message.content.split(' ').slice(1).join(' ');
-    if(!args) return message.channel.send('❎ » يجب عليك كتابة الرسالة')
-    setTimeout(() => {
-      message.channel.send(`تم الارسال لـ ${i} شخص`)
-    }, client.users.size * 500);
-    client.users.forEach(s => {
-      s.send(args).catch(e => i--);
-    });
-  }
 });
 client.on('message', async message => {
             if(message.content.includes('discord.gg')){
@@ -513,7 +421,7 @@ delete warn[message.author.id];
   }
 });
 
-client.on('guildMemberRemove', Sal => { //By Salto7#4595
+client.on('guildMemberRemove', Sal => { //II7mody
   var embed = new Discord.RichEmbed()
   .setAuthor(Sal.user.username, Sal.user.avatarURL)
   .setThumbnail(Sal.user.avatarURL)
@@ -558,7 +466,6 @@ client.on('guildMemberAdd', member => {
      Galal.send(`<@${member.user.id}> joined by <@${inviter.id}>`);
    //  Galal.send(`<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.`);
   }); 
-});
 client.on("message",function(message) {
 	var prefix = "$";
     if(message.content.startsWith(prefix + 'bot')) {
@@ -599,7 +506,7 @@ client.on("message",function(message) {
  
 
 client.on('message',message =>{
-    var prefix = "+";
+    var prefix = "$";
     if(message.content.startsWith(prefix + 'top')) {
   message.guild.fetchInvites().then(i =>{
   var invites = [];
@@ -630,7 +537,7 @@ client.on('message',message =>{
 
     client.on("message", async message => {
         if(!message.channel.guild) return;
-    var prefix = "+";
+    var prefix = "$";
     if(message.content.startsWith(prefix + 'member')) {
         let guild = await message.guild.fetchMembers()
         let bots = guild.members.filter(m => m.user.bot).size
@@ -668,20 +575,6 @@ var ApL = `${Math.round(client.ping)}`
   }  
  });
 
-
- 
-    
-client.on('message', message => {
-        if (message.content === "$inv") {
-            if(!message.channel.guild) return;
-        let embed = new Discord.RichEmbed()
-        .setAuthor(` ${message.author.username} `, message.author.avatarURL)      
-        .setTitle(`:small_orange_diamond: click here `)
-        .setURL(`https://discordapp.com/api/oauth2/authorize?client_id=537238168525733898&permissions=2146958839&scope=bot`)
-        .setThumbnail("https://cdn.discordapp.com/attachments/537614862205845514/539583889715363850/download.jpg")        
-     message.channel.sendEmbed(embed);
-       }
-   });
 
 const { TOKEN, PREFIX, GOOGLE_API_KEY } = require('./config');
 
