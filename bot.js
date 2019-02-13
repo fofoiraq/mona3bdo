@@ -23,61 +23,8 @@ const ms = require('ms');
 var guilds = {};
 
 
-client.on("message", (message) => {
+,
 
-   if (message.content.startsWith("$new")) {   
-        const reason = message.content.split(" ").slice(1).join(" ");  
-        if (!message.guild.roles.exists("name", "Dragon Bot")) return message.channel.send(`لازم تسوي رتبة اسمها \`Dragon Bot\` وتنطي البوت ادمنيتر حتا يقدر يسوي الرومات ويعدل برمشنات`);
-        if (message.guild.channels.exists("name", "ticket-{message.author.id}" + message.author.id)) return message.channel.send(`You already have a ticket open.`);    /// ALPHA CODES
-        message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
-            let role = message.guild.roles.find("name", "Support Team");
-            let role2 = message.guild.roles.find("name", "@everyone");
-            c.overwritePermissions(role, {
-                SEND_MESSAGES: true,
-                READ_MESSAGES: true
-            });   
-            c.overwritePermissions(role2, {
-                SEND_MESSAGES: false,
-                READ_MESSAGES: false
-            });
-            c.overwritePermissions(message.author, {
-                SEND_MESSAGES: true,
-                READ_MESSAGES: true
-            });
-            message.channel.send(`:white_check_mark: تم انشاء تذكرتك, #${c.name}.`);
-            const embed = new Discord.RichEmbed()
-                .setColor(0xCF40FA)
-                .addField(`Hey ${message.author.username}!`, `:white_check_mark:  تم انشاء تذكرتك, #ticket`)
-                .setTimestamp();
-            c.send({
-                embed: embed
-            });
-        }).catch(console.error);
-    }
- 
- 
-  if (message.content.startsWith("$close")) {
-        if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
- 
-       message.channel.send(`هل انت متأكد من اقفالك للتذكرة اذا متأكد اكتب.ok`)
-           .then((m) => {
-               message.channel.awaitMessages(response => response.content === '.ok', {
-                       max: 1,
-                       time: 10000,
-                       errors: ['time'],
-                   })  
-                   .then((collected) => {
-                       message.channel.delete();
-                   })   
-                   .catch(() => {
-                       m.edit('Ticket close timed out, the ticket was not closed.').then(m2 => {
-                           m2.delete();
-                       }, 3000);
-                   });
-           });
-   }
- 
-});
 
 client.on('message', async message => {
             if(message.content.includes('discord.gg')){
@@ -229,69 +176,9 @@ client.on('guildMemberAdd', member => {
      Galal.send(`<@${member.user.id}> joined by <@${inviter.id}>`);
    //  Galal.send(`<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.`);
   }); 
-client.on("message",function(message) {
-	var prefix = "$";
-    if(message.content.startsWith(prefix + 'bot')) {
-        var uptime = client.uptime;
- 
-    var days = 0;
-    var hours = 0;
-    var minutes = 0;
-    var seconds = 0;
-    var notCompleted = true;
- 
-    while (notCompleted) {
- 
-        if (uptime >= 8.64e+7) {
- 
-            days++;
-            uptime -= 8.64e+7;
- 
-        } else if (uptime >= 3.6e+6) {
- 
-            hours++;
-            uptime -= 3.6e+6;
- 
-        } else if (uptime >= 60000) {
- 
-            minutes++;
-            uptime -= 60000;
- 
-        } else if (uptime >= 1000) {
-            seconds++;
-            uptime -= 1000;
- 
-        }
- 
-        if (uptime < 1000)  notCompleted = false;
- 
-    }
- 
 
-client.on('message',message =>{
-    var prefix = "$";
-    if(message.content.startsWith(prefix + 'top')) {
-  message.guild.fetchInvites().then(i =>{
-  var invites = [];
-   
-  i.forEach(inv =>{
-    var [invs,i]=[{},null];
-     
-    if(inv.maxUses){
-        invs[inv.code] =+ inv.uses+"/"+inv.maxUses;
-    }else{
-        invs[inv.code] =+ inv.uses;
-    }
-        invites.push(`invite: ${inv.url} inviter: ${inv.inviter} \`${invs[inv.code]}\`;`);
-   
-  });
-  var embed = new Discord.RichEmbed()
-  .setColor("#000000")
-  .setDescription(`${invites.join(`\n`)+'\n\n**By:** '+message.author}`)
-  .setThumbnail("https://i.imgur.com/GnR2unD.png")
-           message.channel.send({ embed: embed });
-   
-  });
+ 
+        
    
 
 
