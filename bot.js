@@ -23,16 +23,6 @@ const ms = require('ms');
 var guilds = {};
 
 
-
-client.on("guildMemberAdd", member => {
-  member.createDM().then(function (channel) {
-  return channel.send(`:rose:  ولكم نورت السيرفر:rose: 
-:crown:اسم العضو  ${member}:crown:  
-انت العضو رقم ${member.guild.memberCount} `) 
-}).catch(console.error)
-})
-})
-});
  let channelc = {};
   client.on('channelCreate', async (channel) => {
   const rebellog = client.chnnels.find("name", "log"),
@@ -203,9 +193,9 @@ client.on("message", (message) => {
   if (message.content.startsWith("$close")) {
         if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
  
-       message.channel.send(`هل انت متأكد من اقفالك للتذكرة اذا متأكد اكتب.confirm`)
+       message.channel.send(`هل انت متأكد من اقفالك للتذكرة اذا متأكد اكتب.ok`)
            .then((m) => {
-               message.channel.awaitMessages(response => response.content === '.confirm', {
+               message.channel.awaitMessages(response => response.content === '.ok', {
                        max: 1,
                        time: 10000,
                        errors: ['time'],
@@ -221,23 +211,6 @@ client.on("message", (message) => {
            });
    }
  
-});
-client.on('message', message => {
-            if (message.content.startsWith("قوانين")) {
-     let embed = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)
-.addField('     **اولا** ' ,' **ممنوع السب** ')
-.addField('     **ثانيا** ' ,' **لا تسوي سبام ** ')
-.addField('     **ثالثا** ' ,' **لا تزعج الاخرين** ')
-.addField('    **رابعا**' ,' **ممنوع النشر =ميوت** ')
-.addField('    **خامسا**' ,' **احترم الاخرين** ')
-.addField('    **سادسا**' ,' **لا تنشر في الشات او بل خاص** ')
-.addField('    **سابعا**' ,' **لا تنشر روابط!** ')
-.addField('    **ثامنا**' ,' **لا تسوي سبام ايموجي** ')
-.addField('    **تاسعا**' ,' **لا تطلب رتبه الاداره !** ')
-.setColor('#7d2dbe')
-  message.channel.sendEmbed(embed);
-    }
 });
 const reportjson = JSON.parse(fs.readFileSync('./report.json' , 'utf8'));
  
@@ -421,7 +394,7 @@ delete warn[message.author.id];
   }
 });
 
-client.on('guildMemberRemove', Sal => { //II7mody
+client.on('guildMemberRemove', Sal => { 
   var embed = new Discord.RichEmbed()
   .setAuthor(Sal.user.username, Sal.user.avatarURL)
   .setThumbnail(Sal.user.avatarURL)
@@ -440,7 +413,7 @@ client.on('guildMemberRemove', Sal => { //II7mody
   });
 
  client.on('message', message => {
-	 var prefix = "+";
+	 var prefix = "$";
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
 
@@ -947,7 +920,7 @@ function play(guild, song) {
 
 
     client.on('message', message => {
-        if (message.content.startsWith('+quran')) {
+        if (message.content.startsWith('$quran')) {
                     if(!message.channel.guild) return message.reply('** This command only for servers **');
       
           const voiceChannel = message.member.voiceChannel;
@@ -964,7 +937,7 @@ function play(guild, song) {
             });
         }
         
-        if (message.content.startsWith('+quran-stop')) {
+        if (message.content.startsWith('$quran-stop')) {
                     if(!message.channel.guild) return message.reply('** This command only for servers **');
       
           const voiceChannel = message.member.voiceChannel;
@@ -977,7 +950,7 @@ function play(guild, song) {
       });
 
       client.on('message', message => {
-        if (message.content.startsWith('+alkahf')) {
+        if (message.content.startsWith('$alkahf')) {
                     if(!message.channel.guild) return message.reply('** This command only for servers **');
       
           const voiceChannel = message.member.voiceChannel;
@@ -994,7 +967,7 @@ function play(guild, song) {
             });
         }
         
-        if (message.content.startsWith('+alkahf-stop')) {
+        if (message.content.startsWith('$alkahf-stop')) {
                     if(!message.channel.guild) return message.reply('** This command only for servers **');
       
           const voiceChannel = message.member.voiceChannel;
@@ -1007,7 +980,7 @@ function play(guild, song) {
       });
       
       client.on('message', message => {
-        if (message.content.startsWith('+albaqara')) {
+        if (message.content.startsWith('$albaqara')) {
                     if(!message.channel.guild) return message.reply('** This command only for servers **');
       
           const voiceChannel = message.member.voiceChannel;
@@ -1024,7 +997,7 @@ function play(guild, song) {
             });
         }
         
-        if (message.content.startsWith('+albaqara-stop')) {
+        if (message.content.startsWith('$albaqara-stop')) {
                     if(!message.channel.guild) return message.reply('** This command only for servers **');
       
           const voiceChannel = message.member.voiceChannel;
@@ -1036,7 +1009,7 @@ function play(guild, song) {
       
       });
       client.on('message', message => {
-        if (message.content.startsWith('+yasin')) {
+        if (message.content.startsWith('$yasin')) {
                     if(!message.channel.guild) return message.reply('** This command only for servers **');
       
           const voiceChannel = message.member.voiceChannel;
@@ -1053,7 +1026,7 @@ function play(guild, song) {
             });	
         }
         
-        if (message.content.startsWith('+yasin-stop')) {
+        if (message.content.startsWith('$yasin-stop')) {
                     if(!message.channel.guild) return message.reply('** This command only for servers **');
       
           const voiceChannel = message.member.voiceChannel;
@@ -1066,7 +1039,7 @@ function play(guild, song) {
       });
 
       client.on('message', message => {
-        if (message.content.startsWith('+alkursi')) {
+        if (message.content.startsWith('$alkursi')) {
                     if(!message.channel.guild) return message.reply('** This command only for servers **');
       
           const voiceChannel = message.member.voiceChannel;
@@ -1083,7 +1056,7 @@ function play(guild, song) {
             });
         }
         
-        if (message.content.startsWith('+alkursi-stop')) {
+        if (message.content.startsWith('$alkursi-stop')) {
                     if(!message.channel.guild) return message.reply('** This command only for servers **');
       
           const voiceChannel = message.member.voiceChannel;
@@ -1098,7 +1071,7 @@ function play(guild, song) {
 const sWlc = {}
 const premium = ['389090790984515594']
 client.on('message', message => {
-var prefix = "+";
+var prefix = "$";
 if(message.channel.type === "dm") return;
 if(message.author.bot) return;
   if(!sWlc[message.guild.id]) sWlc[message.guild.id] = {
