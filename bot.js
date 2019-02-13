@@ -28,26 +28,6 @@ var guilds = {};
 
 
 
-client.on('guildMemberRemove', Sal => { 
-  var embed = new Discord.RichEmbed()
-  .setAuthor(Sal.user.username, Sal.user.avatarURL)
-  .setThumbnail(Sal.user.avatarURL)
-  .setImage('https://cdn.discordapp.com/attachments/505491202871787521/509701858571321350/download.jpg') //هنا حط الصوره الي تبيها
-  .setTitle('خرج عضو')
-  .setDescription('الله معك مع السلامه')
-  .addField('``ايدي العضو``:',"" +  Sal.user.id, true)
-  .addField('``تاق العضو``', Sal.user.discriminator, true)
-  .addField('``تم الانشاء في``', Sal.user.createdAt, true)
-  .addField(' ?? الان ',`**[ ${Sal.guild.memberCount} ]**`,true)
-  .setColor('RED')
-  .setFooter(Sal<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.`);
-
-
- 
-        
-   
-
-
 
 
 client.on('message' , message => {
