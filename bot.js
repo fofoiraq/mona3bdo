@@ -98,7 +98,6 @@ client.on('message', async message => {
             SEND_MESSAGES: false,
             ADD_REACTIONS: false
           });
-        });
   
       }catch(e){
         console.log(e.stack);
@@ -314,8 +313,6 @@ client.on('message',message =>{
    
   });
    
-    }
-  });
 
 
 
@@ -730,173 +727,7 @@ function play(guild, song) {
 }
 
 
-    client.on('message', message => {
-        if (message.content.startsWith('$quran')) {
-                    if(!message.channel.guild) return message.reply('** This command only for servers **');
-      
-          const voiceChannel = message.member.voiceChannel;
-          if (!voiceChannel) {
-            return message.reply(`من فضلك ادخل روم صوتي `);
-          }
-          voiceChannel.join()
-            .then(connnection => {
-              let stream = yt('https://www.youtube.com/watch?v=Ktync4j_nmA', {audioonly: true});
-              const dispatcher = connnection.playStream(stream);
-              dispatcher.on('end', () => {
-                voiceChannel.leave();
-              });
-            });
-        }
-        
-        if (message.content.startsWith('$quran-stop')) {
-                    if(!message.channel.guild) return message.reply('** This command only for servers **');
-      
-          const voiceChannel = message.member.voiceChannel;
-          if (!voiceChannel) {
-            return message.reply(`من فضلك ادخل روم صوتي `);
-          }
-      voiceChannel.leave();
-        }
-      
-      });
 
-      client.on('message', message => {
-        if (message.content.startsWith('$alkahf')) {
-                    if(!message.channel.guild) return message.reply('** This command only for servers **');
-      
-          const voiceChannel = message.member.voiceChannel;
-          if (!voiceChannel) {
-            return message.reply(`من فضلك ادخل روم صوتي `);
-          }
-          voiceChannel.join()
-            .then(connnection => {
-              let stream = yt('https://www.youtube.com/watch?v=sOML64y5dfQ', {audioonly: true});
-              const dispatcher = connnection.playStream(stream);
-              dispatcher.on('end', () => {
-                voiceChannel.leave();
-              });
-            });
-        }
-        
-        if (message.content.startsWith('$alkahf-stop')) {
-                    if(!message.channel.guild) return message.reply('** This command only for servers **');
-      
-          const voiceChannel = message.member.voiceChannel;
-          if (!voiceChannel) {
-            return message.reply(`من فضلك ادخل روم صوتي `);
-          }
-      voiceChannel.leave();
-        }
-      
-      });
-      
-      client.on('message', message => {
-        if (message.content.startsWith('$albaqara')) {
-                    if(!message.channel.guild) return message.reply('** This command only for servers **');
-      
-          const voiceChannel = message.member.voiceChannel;
-          if (!voiceChannel) {
-            return message.reply(`من فضلك ادخل روم صوتي `);
-          }
-          voiceChannel.join()
-            .then(connnection => {
-              let stream = yt('https://www.youtube.com/watch?v=gIYaTs1Kw90', {audioonly: true});
-              const dispatcher = connnection.playStream(stream);
-              dispatcher.on('end', () => {
-                voiceChannel.leave();
-              });
-            });
-        }
-        
-        if (message.content.startsWith('$albaqara-stop')) {
-                    if(!message.channel.guild) return message.reply('** This command only for servers **');
-      
-          const voiceChannel = message.member.voiceChannel;
-          if (!voiceChannel) {
-            return message.reply(`من فضلك ادخل روم صوتي `);
-          }
-      voiceChannel.leave();
-        }
-      
-      });
-      client.on('message', message => {
-        if (message.content.startsWith('$yasin')) {
-                    if(!message.channel.guild) return message.reply('** This command only for servers **');
-      
-          const voiceChannel = message.member.voiceChannel;
-          if (!voiceChannel) {
-            return message.reply(`من فضلك ادخل روم صوتي `);
-          }
-          voiceChannel.join()
-            .then(connnection => {
-              let stream = yt('https://www.youtube.com/watch?v=KpNqGctH-p0', {audioonly: true});
-              const dispatcher = connnection.playStream(stream);
-              dispatcher.on('end', () => {
-                voiceChannel.leave();
-              });
-            });	
-        }
-        
-        if (message.content.startsWith('$yasin-stop')) {
-                    if(!message.channel.guild) return message.reply('** This command only for servers **');
-      
-          const voiceChannel = message.member.voiceChannel;
-          if (!voiceChannel) {
-            return message.reply(`من فضلك ادخل روم صوتي `);
-          }
-      voiceChannel.leave();
-        }
-      
-      });
-
-      client.on('message', message => {
-        if (message.content.startsWith('$alkursi')) {
-                    if(!message.channel.guild) return message.reply('** This command only for servers **');
-      
-          const voiceChannel = message.member.voiceChannel;
-          if (!voiceChannel) {
-            return message.reply(`من فضلك ادخل روم صوتي `);
-          }
-          voiceChannel.join()
-            .then(connnection => {
-              let stream = yt('https://www.youtube.com/watch?v=fcoQCIBMuRg', {audioonly: true});
-              const dispatcher = connnection.playStream(stream);
-              dispatcher.on('end', () => {
-                voiceChannel.leave();
-              });
-            });
-        }
-        
-        if (message.content.startsWith('$alkursi-stop')) {
-                    if(!message.channel.guild) return message.reply('** This command only for servers **');
-      
-          const voiceChannel = message.member.voiceChannel;
-          if (!voiceChannel) {
-            return message.reply(`من فضلك ادخل روم صوتي `);
-          }
-      voiceChannel.leave();
-        }
-      
-      });
-
-const sWlc = {}
-const premium = ['389090790984515594']
-client.on('message', message => {
-var prefix = "$";
-if(message.channel.type === "dm") return;
-if(message.author.bot) return;
-  if(!sWlc[message.guild.id]) sWlc[message.guild.id] = {
-    channel: "welcome"
-}
-const channel = sWlc[message.guild.id].channel
-  if (message.content.startsWith(prefix + "setwelcomer")) {
-    if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
-    let newChannel = message.content.split(' ').slice(1).join(" ")
-    if(!newChannel) return message.reply(`**${prefix}setwelcomer <channel name>**`)
-    sWlc[message.guild.id].channel = newChannel
-    message.channel.send(`**${message.guild.name}'s channel has been changed to ${newChannel}**`);
-  }
-});
 client.on("guildMemberAdd", member => {
       if(!sWlc[member.guild.id]) sWlc[member.guild.id] = {
     channel: "welcome"
