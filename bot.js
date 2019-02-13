@@ -23,7 +23,7 @@ const ms = require('ms');
 var guilds = {};
 
 
-,
+
 
 
 
