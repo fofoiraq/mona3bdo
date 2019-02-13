@@ -99,7 +99,6 @@ client.on('message', async message => {
             ADD_REACTIONS: false
           });
   
-      }catch(e){
         console.log(e.stack);
       }
     }
