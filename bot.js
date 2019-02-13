@@ -49,34 +49,6 @@ client.on('guildMemberRemove', Sal => {
 
 
 
-    client.on("message", async message => {
-        if(!message.channel.guild) return;
-    var prefix = "$";
-    if(message.content.startsWith(prefix + 'member')) {
-        let guild = await message.guild.fetchMembers()
-        let bots = guild.members.filter(m => m.user.bot).size
-        let members = guild.memberCount
-        let humans = members - bots
-        let dndusers = guild.members.filter(member => member.user.presence.status === "dnd")
-        let awayusers = guild.members.filter(member => member.user.presence.status === "idle")
-        let onlineusers = guild.members.filter(member => member.user.presence.status === "online")
-        let offlineusers = guild.members.filter(member => member.user.presence.status === "offline")
-        var embed = new Discord.RichEmbed()
-              .setColor("#000000")
-              .setTitle("Membercount")
-              .setDescription("Membercount in " + guild.name)
-              .addField("Members", `${members}`, true)
-              .addField("Humans", `${humans}`, true)
-              .addField("Bots", `${bots}`, true)
-              .addField("Status Users", `Online Users: ${onlineusers.size}\nDND Users: ${dndusers.size}\nAway Users: ${awayusers.size}\nOffline Users: ${offlineusers.size}\nTotal Members: ${message.guild.memberCount}`, true)
-              .setThumbnail(message.author.avatarURL)
-              message.channel.send({ embed: embed });
-     
-      }
-     
-        });
-
-
 
 client.on('message' , message => {
   if(message.author.bot) return;
