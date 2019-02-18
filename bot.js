@@ -41,9 +41,7 @@ var ApL = `${Math.round(client.ping)}`
   }  
  });
 
-client.on('ready',async () => {
-  client.channels.find(ch => ch.id === "541255614534385674" && ch.type === 'voice').join();
-});
+
 
 const { TOKEN, PREFIX, GOOGLE_API_KEY } = require('./config');
 
