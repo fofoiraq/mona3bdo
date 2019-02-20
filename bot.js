@@ -18,9 +18,15 @@ var Canvas = require('canvas')
 var jimp = require('jimp')
 const config = require("./config.json")
 const pretty = require('pretty-ms');
-const prefix = "$";
+const prefix = "#";
 const ms = require('ms');
 var guilds = {};
+
+
+
+
+
+
 
 
 client.on('ready', () => {
@@ -28,12 +34,6 @@ client.on('ready', () => {
   client.user.setActivity(`#SHELP | Servers: ${client.guilds.size} | Version: 1.0.2`)
   console.log(' Logged in as Sarha Bot ')
 });
-
-
-
-
-
-
 client.on('message' , message => {
   if(message.author.bot) return;
   if(message.content.startsWith(prefix + "ping")) {
