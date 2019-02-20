@@ -29,11 +29,7 @@ var guilds = {};
 
 
 
-client.on('ready', () => {
-  client.user.setPresence('Online')
-  client.user.setActivity(`#SHELP | Servers: ${client.guilds.size} | Version: 1.0.2`)
-  console.log(' Logged in as Sarha Bot ')
-});
+
 client.on('message' , message => {
   if(message.author.bot) return;
   if(message.content.startsWith(prefix + "ping")) {
