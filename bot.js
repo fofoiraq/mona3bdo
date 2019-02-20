@@ -23,7 +23,11 @@ const ms = require('ms');
 var guilds = {};
 
 
-
+client.on('ready', () => {
+  client.user.setPresence('Online')
+  client.user.setActivity(`#SHELP | Servers: ${client.guilds.size} | Version: 1.0.2`)
+  console.log(' Logged in as Sarha Bot ')
+});
 
 
 
