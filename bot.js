@@ -22,11 +22,23 @@ const prefix = "#";
 const ms = require('ms');
 var guilds = {};
 
-
-
-
-
-
+client.on('ready', function(){	
+    var ms = 10000 ;	
+    var setGame = ['#help | https://dragonbot.ml'];	
+    var i = -1;	
+    var j = 0;	
+    setInterval(function (){	
+        if( i == -1 ){	
+j = 1;	
+       }	
+        if( i == (setGame.length)-1 ){	
+            j = -1;	
+      }	
+       i = i+j;	
+              client.user.setGame(setGame[i],`Playing`);
+}, ms);	
+	
+});
 
 
 
