@@ -22,8 +22,7 @@ const prefix = "#";
 const ms = require('ms');
 var guilds = {};
 
-client.on('ready', function(){	
-    var ms = 10000 ;	
+client.on('ready', function(){		
     var setGame = ['#help | https://dragonbot.ml'];	
     var i = -1;	
     var j = 0;	
