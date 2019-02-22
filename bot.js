@@ -22,7 +22,6 @@ const prefix = "#";
 const ms = require('ms');
 var guilds = {};
 
-bot.user.setPresence({ game: { name: 'with depression', type: "streaming", url: "https://www.twitch.tv/monstercat"}});
 
 
 client.on('message' , message => {
