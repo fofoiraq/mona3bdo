@@ -247,7 +247,6 @@ client.on('error', console.error);
 
 
 
-client.on('ready', () => console.log('Yo this ready!'));
 
 
 
