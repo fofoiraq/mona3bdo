@@ -582,7 +582,19 @@ client.on("guildMemberAdd", async member => {
     member.ban("Member account age is lower than 6 days.")
   }
 });
-
+ client.on('message', message => {
+  if (message.content.startsWith("#bot")) {
+let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField(' servers:globe_with_meridians:',[${client.guilds.size}])
+.addField(' members:busts_in_silhouette: ',[${client.users.size}])
+.addField('rooms:books: ',[${client.channels.size}]) 
+.addField(' ping:rocket: ',[${Date.now() - message.createdTimestamp}]) 
+.addField('.negur  + HypeSquad ',negur)
+.setColor('#7d2dbe')
+message.channel.sendEmbed(embed);
+}
+});
 
 
 client.login(process.env.BOT_TOKEN);
