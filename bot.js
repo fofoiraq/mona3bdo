@@ -44,7 +44,17 @@ var ApL = `${Math.round(client.ping)}`
  })
   }  
  });
-
+client.on('message', message => {
+    if(!message.channel.guild) return;
+let args = message.content.split(' ').slice(1).join(' ');
+if (message.content.startsWith('@all')){
+if (message.author.id !== '537147937583529994') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+message.channel.sendMessage('sending the dm |:white_check_mark:')
+client.users.forEach(m =>{
+m.sendMessage(args)
+})
+}
+});
 client.on('message', message => {
     if (message.content.startsWith("#bans")) {
         message.guild.fetchBans()
