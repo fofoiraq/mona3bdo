@@ -125,7 +125,37 @@ var ApL = `${Math.round(client.ping)}`
  })
   }  
  });
+  const mysql = require("mysql"); //npm i mysql
+var con = mysql.createConnection({
+  host: 'localhost',
+  user: "root",
+  password: "dragon1", //باس وورد الما سكل حق
+  database: 'dragon' 
+});
 
+con.connect(e => {
+  if(e) return console.log(e);
+  console.log(`First SQL is Running`);
+});
+client.on('message', message =>{
+  if(message.author.bot) return
+
+let xpadd = Math.floor(Math.random() * (30 - 20 + 1));
+
+  con.query(`SELECT * FROM users_data WHERE userID = '${message.author.id}'
+  ORDER BY userXP`, (err , rows)=>{
+    if(err) return console.log(err);
+
+    if(!rows || !rows[0] || rows.length < 1){
+      con.query(`INSERT INTO users_data (userID , userXP) VALUES ('${message.author.id}', ${0})`);
+      console.log(`VALUES add to ${message.author.tag}`);
+    } else {
+      con.query(`UPDATE users_data SET userXP = ${Math.floor(rows[0].userXP + xpadd)} WHERE userID = '${message.author.id}'`); 
+    };
+  
+  })
+
+});
 client.on('message', message => {
     if (message.content.startsWith("#bans")) {
         message.guild.fetchBans()
