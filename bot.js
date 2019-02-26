@@ -3,6 +3,7 @@ const RichEmbed = require("discord.js");
 const { Client, Util } = require('discord.js');
 const client = new Discord.Client();
 const dateFormat = require('dateformat');
+const hastebin = require('hastebin-gen');
 const convert = require("hh-mm-ss")
 const fs = require('fs');
 const adminprefix = "#";
@@ -32,7 +33,7 @@ client.on("message", message => {
    
   } //////// Galal , Alpha Codes
 }); //////// Galal , Alpha Codes
-const hastebin = require('hastebin-gen');
+
 client.on('message', message => {
 var PREFIX = '#';
     if(message.content.startsWith(PREFIX + 'dis')) {
