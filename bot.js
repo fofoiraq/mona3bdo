@@ -49,6 +49,11 @@ client.on('guildCreate', guild => {
 Server name: __${guild.name}__
 Server owner: __${guild.owner}__**`)
 });
+client.on("guildDelete", guild => {
+ client.channels.get("550076449433059373").send(`**Rmoved From server :x:
+Server name: __${guild.name}__
+Server owner: __${guild.owner}__**`)
+});
 client.on('message', message => {
     if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
