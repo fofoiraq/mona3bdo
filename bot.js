@@ -271,10 +271,6 @@ client.on('ready',async () => {
   client.channels.find(ch => ch.id === "551016431404187668"&& ch.type === 'voice').join();
 });
 
-client.on('ready',async () => {
-  client.channels.find(ch => ch.id === "550655564019924993"&& ch.type === 'voice').join();
-});
-
 const { TOKEN, PREFIX, GOOGLE_API_KEY } = require('./config');
 
 const youtube = new YouTube(GOOGLE_API_KEY);
