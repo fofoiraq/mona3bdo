@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const RichEmbed = require("discord.js");
 const { Client, Util } = require('discord.js');
 const client = new Discord.Client();
+const dl = require('discord-leveling');
 const dateFormat = require('dateformat');
 const convert = require("hh-mm-ss")
 const fs = require('fs');
@@ -262,8 +263,7 @@ client.on('message', message => {
  }
  });
 
-const dl = require('discord-leveling');
- 
+
 const client = new Discord.Client();
  
 
