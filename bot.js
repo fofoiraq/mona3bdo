@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 const RichEmbed = require("discord.js");
 const { Client, Util } = require('discord.js');
 const client = new Discord.Client();
-const dl = require('discord-leveling');
 const dateFormat = require('dateformat');
 const convert = require("hh-mm-ss")
 const fs = require('fs');
@@ -262,104 +261,6 @@ client.on('message', message => {
                              })
  }
  });
-
-
-const client = new Discord.Client();
- 
-
-client.on('message', async message => {//Alpha_Codes|LionDev.
- 
-  const settings = {
-    prefix: '#',//هنا بريفيكس
-  }
- 
-
-  var args = message.content.split(' ').slice(1);
- 
-  if (message.author.bot) return;
- 
-  var profile = await dl.Fetch(message.author.id)
-  dl.AddXp(message.author.id, 10)
-  if (profile.xp + 10 > 100) {
-    await dl.AddLevel(message.author.id, 1)
-    await dl.SetXp(message.author.id, 0)
-    message.reply(`لقد تم ترقية لفلك انت الأن ${profile.level + 1}`)//هنا لما يتفعل العضو يزيده اللفل
-  }
- 
-  if (!message.content.startsWith(settings.prefix)) return;
- 
-  if (command === 'profilee') {
- 
-    var user = message.mentions.users.first() || message.author//هنا عشان تشوف لفلك
- 
-    var output = await dl.Fetch(user.id)
-    message.channel.send(`مرحبا ${user.tag}! لديك ${output.level} level(s)! & ${output.xp} xp!`);
-  }
- 
-  if (command === 'setxp') {
- 
-    var amount = args[0]
-    var user = message.mentions.users.first() || message.author
- 
-    var output = await dl.SetXp(user.id, amount)
-    message.channel.send(`مرحبا ${user.tag}! لديك ${amount} xp!`);
-  }
- 
-  if (command === 'setlevel') {
- 
-    var amount = args[0]
-    var user = message.mentions.users.first() || message.author
- 
-    var output = await dl.SetLevel(user.id, amount)
-    message.channel.send(`مرحبا ${user.tag}! لديك ${amount} levels!`);
-  }
- 
-  if (command === 'lb') {//هنا قائمة أفضل لفلات
- 
-    if (message.mentions.users.first()) {
- 
-      var output = await dl.Leaderboard({
-        search: message.mentions.users.first().id
-      })
-      message.channel.send(`هذا العضو ${message.mentions.users.first().tag} العدد ${output.placement} في القائمة`);
- 
-    } else { 
- 
-      dl.Leaderboard({
-        limit: 3
-      }).then(async users => { 
- 
-        var firstplace = await client.fetchUser(users[0].userid) 
-        var secondplace = await client.fetchUser(users[1].userid) 
-        var thirdplace = await client.fetchUser(users[2].userid) 
- 
-        message.channel.send(`قائمة أول ثلاث أشخاص لديهم لفل عالي:
- 
-1 - ${firstplace.tag} : ${users[0].level} : ${users[0].xp}
-2 - ${secondplace.tag} : ${users[1].level} : ${users[1].xp}
-3 - ${thirdplace.tag} : ${users[2].level} : ${users[2].xp}`)
- 
-      })
- 
-    }
-  }
- 
-  if (command == 'delete') {//هنا اذا أردت مسح قاعدة بيانات أي شخص يعني تمسح لو لفلو
- 
-    var user = message.mentions.users.first()
-    if (!user) return message.reply('يرجى تحديد العضو!')
- 
-    if (!message.guild.me.hasPermission(`ADMINISTRATION`)) return message.reply('ليس لديك برمشنز لكي تحذف قاعدة البيانات')
- 
-    var output = await dl.Delete(user.id)
-    if (output.deleted == true) return message.reply('تم حذف المستخدم من قاعدة البيانات بنجاح!')
- 
-    message.reply('لم أستطع تحديد هذا العضو')
- 
-  }
- 
-})
-
 
 
 
