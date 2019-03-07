@@ -76,8 +76,8 @@ client.on('message', message => {
 const yourID = "537147937583529994"
 const setupCMD = "go"
 let initialMessage = `@everyone  وبيظهرلك شنلات فويس للى تبيه 🎉`;
-const roles = ["#'Royal User.", "#'Royal User."];
-const reactions = [":zroyalbot:", ":zroyalbot:",];
+const roles = ["#'Royal User."];
+const reactions = ["🔫"];
 if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
 
 function generateMessages(){
