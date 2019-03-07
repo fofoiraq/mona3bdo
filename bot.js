@@ -5,7 +5,7 @@ const client = new Discord.Client();
 const dateFormat = require('dateformat');
 const convert = require("hh-mm-ss")
 const fs = require('fs');
-const adminprefix = "#";
+const adminprefix = ".";
 const devs = ['402043862480322562', '443696811421466624'];
 const moment = require('moment');
 const ytdl = require('ytdl-core');
@@ -18,7 +18,7 @@ var Canvas = require('canvas')
 var jimp = require('jimp')
 const config = require("./config.json")
 const pretty = require('pretty-ms');
-const prefix = "#";
+const prefix = ".";
 const ms = require('ms');
 var guilds = {};
 
