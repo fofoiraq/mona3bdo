@@ -5,7 +5,7 @@ const client = new Discord.Client();
 const dateFormat = require('dateformat');
 const convert = require("hh-mm-ss")
 const fs = require('fs');
-const adminprefix = ".";
+const adminprefix = "#";
 const devs = ['402043862480322562', '443696811421466624'];
 const moment = require('moment');
 const ytdl = require('ytdl-core');
@@ -18,7 +18,7 @@ var Canvas = require('canvas')
 var jimp = require('jimp')
 const config = require("./config.json")
 const pretty = require('pretty-ms');
-const prefix = ".";
+const prefix = "#";
 const ms = require('ms');
 var guilds = {};
 
@@ -756,31 +756,7 @@ if (message.author.bot) return;
           }
          
         })
- 
- 
-client.on('messageDelete', message => {
- 
-    if(message.author.bot) return;
-    if(message.channel.type === 'dm') return;
-    if(!message.guild.member(client.user).hasPermission('EMBED_LINKS')) return;
-    if(!message.guild.member(client.user).hasPermission('MANAGE_MESSAGES')) return;
-                        if(!log[message.guild.id]) log[message.guild.id] = {
-          onoff: 'Off'
-        }
-    if(log[message.guild.id].onoff === 'Off') return;
-    var logChannel = message.guild.channels.find(c => c.name === `${log[message.guild.id].channel}`);
-    if(!logChannel) return;
- 
-    let messageDelete = new Discord.RichEmbed()
-    .setTitle('**[MESSAGE DELETE]**')
-    .setColor('RED')
-    .setThumbnail(message.author.avatarURL)
-    .setDescription(`**n**:wastebasket: Successfully ``DELETE`` **MESSAGE** In ${message.channel}nn**Channel:** ``${message.channel.name}`` (ID: ${message.channel.id})n**Message ID:** ${message.id}n**Sent By:** <@${message.author.id}> (ID: ${message.author.id})n**Message:**n```${message}````)
-    .setTimestamp()
-    .setFooter(message.guild.name, message.guild.iconURL)
- 
-    logChannel.send(messageDelete);
-});
+
 client.on('messageUpdate', (oldMessage, newMessage) => {
  
     if(oldMessage.author.bot) return;
