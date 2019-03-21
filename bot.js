@@ -267,12 +267,9 @@ client.on('message', message => {
 
 
 client.on('ready',async () => {
-  client.channels.find(ch => ch.id === "550655564019924993"&& ch.type === 'voice').join();
+  client.channels.find(ch => ch.id === "556576711324467200"&& ch.type === 'voice').join();
 });
 
-client.on('ready',async () => {
-  client.channels.find(ch => ch.id === "552487414090694674"&& ch.type === 'voice').join();
-});
 
 const { TOKEN, PREFIX, GOOGLE_API_KEY } = require('./config');
 
