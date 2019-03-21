@@ -45,7 +45,7 @@ var ApL = `${Math.round(client.ping)}`
   }  
  });
 client.on('guildCreate', guild => {
-  client.channels.get("550074089424027694").send(`**Woops new server ✅
+  client.channels.get("550076449433059373").send(`**Woops new server ✅
 Server name: __${guild.name}__
 Server owner: __${guild.owner}__**`)
 });
