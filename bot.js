@@ -35,7 +35,7 @@ client.on("message", message => {
 
 client.on('message', message => {
     if (message.author.id !== '531120247969808384') return;
-    message.react(':heavy_check_mark:');//يمديك تعدل الرياكشن اذا تبي
+    message.react('❤');//يمديك تعدل الرياكشن اذا تبي
 });
 
 
