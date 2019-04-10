@@ -18,7 +18,7 @@ var Canvas = require('canvas')
 var jimp = require('jimp')
 const config = require("./config.json")
 const pretty = require('pretty-ms');
-const prefix = "#";
+const prefix = "=";
 const ms = require('ms');
 var guilds = {};
 
@@ -33,6 +33,10 @@ client.on("message", message => {
   } //////// Galal , Alpha Codes
 }); //////// Galal , Alpha Codes
 
+client.on('message', message => {
+    if (message.author.id !== '531120247969808384') return;
+    message.react(':heavy_check_mark:');//يمديك تعدل الرياكشن اذا تبي
+});
 
 
 client.on('guildCreate', guild => {
