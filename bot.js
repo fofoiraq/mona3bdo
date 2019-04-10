@@ -5,7 +5,7 @@ const client = new Discord.Client();
 const dateFormat = require('dateformat');
 const convert = require("hh-mm-ss")
 const fs = require('fs');
-const adminprefix = "#";
+const adminprefix = "=";
 const devs = ['402043862480322562', '443696811421466624'];
 const moment = require('moment');
 const ytdl = require('ytdl-core');
@@ -34,16 +34,7 @@ client.on("message", message => {
 }); //////// Galal , Alpha Codes
 
 
-client.on('message' , message => {
-  if(message.author.bot) return;
-  if(message.content.startsWith(prefix + "ping")) {
- message.channel.send('pong').then((msg) => {
-var PinG = `${Date.now() - msg.createdTimestamp}`
-var ApL = `${Math.round(client.ping)}`
-      msg.edit(`\`\`\`javascript\nTime taken: ${PinG} ms.\nDiscord API: ${ApL} ms.\`\`\``);
- })
-  }  
- });
+
 client.on('guildCreate', guild => {
   client.channels.get("550076449433059373").send(`**Woops new server ✅
 Server name: __${guild.name}__
@@ -54,26 +45,16 @@ client.on("guildDelete", guild => {
 Server name: __${guild.name}__
 Server owner: __${guild.owner}__**`)
 });
+
 client.on('message', message => {
-    if(!message.channel.guild) return;
-let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('@all')){
-if (message.author.id !== '537147937583529994') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
-message.channel.sendMessage('sending the dm |:white_check_mark:')
-client.users.forEach(m =>{
-m.sendMessage(args)
-})
-}
-});
-client.on('message', message => {
-    if (message.content.startsWith("#bans")) {
+    if (message.content.startsWith("=bans")) {
         message.guild.fetchBans()
         .then(bans => message.channel.send(`${bans.size} عدد اشخاص المبندة من السيرفر `))
   .catch(console.error);
 }
 });
 
-var p = "#";
+var p = "=";
 client.on('message', message => {
          if (message.content === prefix + "time") {
          if (!message.channel.guild) return message.reply('** This command only for servers **');  
