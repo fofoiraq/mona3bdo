@@ -39,16 +39,6 @@ client.on('message', message => {
 });
 
 
-client.on('guildCreate', guild => {
-  client.channels.get("550076449433059373").send(`**Woops new server ✅
-Server name: __${guild.name}__
-Server owner: __${guild.owner}__**`)
-});
-client.on("guildDelete", guild => {
- client.channels.get("550076449433059373").send(`**Rmoved From server :x:
-Server name: __${guild.name}__
-Server owner: __${guild.owner}__**`)
-});
 
 client.on('message', message => {
     if (message.content.startsWith("=bans")) {
