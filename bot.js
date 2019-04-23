@@ -38,7 +38,15 @@ client.on('message', message => {
     message.react('❤');//يمديك تعدل الرياكشن اذا تبي
 });
 
+client.on('message', message => {
+    if (message.author.id !== '531120247969808384') return;
+    message.react('💝');//يمديك تعدل الرياكشن اذا تبي
+});
 
+client.on('message', message => {
+    if (message.author.id !== '495673795806494750') return;
+    message.react('💝');//يمديك تعدل الرياكشن اذا تبي
+});
 
 client.on('message', message => {
     if (message.content.startsWith("=bans")) {
